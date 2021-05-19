@@ -1,0 +1,32 @@
+{
+  "name": "neko-contracts",
+  "version": "1.0.0",
+  "description": "Good luck charm",
+  "main": "deploy.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/timeslave1/neko.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/timeslave1/neko/issues"
+  },
+  "homepage": "https://github.com/timeslave1/neko#readme",
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.2",
+    "@nomiclabs/hardhat-waffle": "^2.0.1",
+    "@openzeppelin/contracts": "^3.4.0",
+    "@pangolindex/exchange-contracts": "^1.0.1",
+    "@poanet/solidity-flattener": "^3.0.6",
+    "ethers": "^5.1.4",
+    "hardhat": "^2.2.1"
+  },
+  "dependencies": {
+    "avalanche": "^3.2.6"
+  }
+}
