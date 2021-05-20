@@ -23,9 +23,9 @@ Mainnet: 0x12F3392825af66e81718689e97b7d9a01f940932
 Fuji: 0x138877A7c4DEc96feCA50Be65b331b945A0ec16a  
 
 ## Other Assets
-Logo: https://arweave.net/H4oIvxHlvclxDPKfpYqyxc5jV8J1fEjDkUKaxAM3nSA
-Logo (transparent, 200p): https://arweave.net/CiD6ETqK8KgDPJg9istCnjSwaN_IUJDiJvAG4GOB_pM
-Logo (transparent, 630p): https://arweave.net/https://arweave.net/3IpH_0OWsf3L4UajqlND-c5iBMhMp9YJAsz0gxQ-_OE
+Logo: https://arweave.net/H4oIvxHlvclxDPKfpYqyxc5jV8J1fEjDkUKaxAM3nSA  
+Logo (transparent, 200p): https://arweave.net/CiD6ETqK8KgDPJg9istCnjSwaN_IUJDiJvAG4GOB_pM  
+Logo (transparent, 630p): https://arweave.net/https://arweave.net/3IpH_0OWsf3L4UajqlND-c5iBMhMp9YJAsz0gxQ-_OE  
 
 ### Important Transactions (Mainnet)
 
