@@ -18,6 +18,10 @@ Fuji: 0x3a5e1eC94944F37d30ae4e598FC5Ea12164EF09a
 Mainnet: 0xE61Bd1F5a3e9440704fcB0f18dA421E114d5266D  
 Fuji: 0x732d8B862a43cd9A500410854c0d31F4B76CE2dB  
 
+### NEKO CONVERTER
+Mainnet: 0x881df89c82a2304369D57d20863A00445e5Da931  
+Fuji: 0x587323C54d71A03bBCce4B914ace0bC6f39c5Ab5  
+
 ### NEKO-WAVAX PGL
 Mainnet: 0x12F3392825af66e81718689e97b7d9a01f940932  
 Fuji: 0x138877A7c4DEc96feCA50Be65b331b945A0ec16a  
@@ -28,4 +32,3 @@ Logo (transparent, 200p): https://arweave.net/CiD6ETqK8KgDPJg9istCnjSwaN_IUJDiJv
 Logo (transparent, 630p): https://arweave.net/3IpH_0OWsf3L4UajqlND-c5iBMhMp9YJAsz0gxQ-_OE
 
 ### Important Transactions (Mainnet)
-
