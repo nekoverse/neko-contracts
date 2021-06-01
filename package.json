@@ -27,6 +27,7 @@
     "hardhat": "^2.2.1"
   },
   "dependencies": {
-    "avalanche": "^3.2.6"
+    "avalanche": "^3.2.6",
+    "eth-revert-reason": "^1.0.3"
   }
 }
