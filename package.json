@@ -24,7 +24,9 @@
     "@pangolindex/exchange-contracts": "^1.0.1",
     "@poanet/solidity-flattener": "^3.0.6",
     "ethers": "^5.1.4",
-    "hardhat": "^2.2.1"
+    "hardhat": "^2.2.1",
+    "neko": "git://github.com/timeslave1/neko-contracts.git",
+    "neko-contracts": "github:timeslave1/neko-contracts"
   },
   "dependencies": {
     "avalanche": "^3.2.6",

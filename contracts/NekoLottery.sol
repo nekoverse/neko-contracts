@@ -18,7 +18,7 @@ contract NekoLottery is Ownable {
 	IPangolinRouter public immutable router;
 	IWAVAX public immutable wavax;
 	Neko public immutable token;	
-	uint256 public immutable maxPlayers;
+	uint256 public immutable maxPlayers;	
 
 	uint private _randNonce = 0;
 	Counters.Counter private _drawNo;	
@@ -28,6 +28,8 @@ contract NekoLottery is Ownable {
 	uint256 private _maxAmount; // max amount deposited by a player
 	address[] private _players; // player wallet addresses	
 	uint256[] private _accruals; // accruals - used for calculating the winner		
+
+	uint256 private _liquidityAmount;
 
 	mapping (address => uint256) private deposits;
 
@@ -101,6 +103,13 @@ contract NekoLottery is Ownable {
 		return _playerCount;
 	}
 
+	function liquidityAmount()
+	external view
+	returns (uint256)
+	{
+		return _liquidityAmount;
+	}
+
 	function buyIn(uint256 amount)
 	external 
 	{	
@@ -131,11 +140,12 @@ contract NekoLottery is Ownable {
 			if (r < cutoff) {				
 				winner = _players[i];
 				prize = SafeMath.div(SafeMath.mul(_totalAmount, PRIZE_PART), PRIZE_BASE);
-				residue = SafeMath.sub(_totalAmount, prize);
+				residue = SafeMath.sub(_totalAmount, prize);				
+				_liquidityAmount = SafeMath.add(_liquidityAmount, residue);
 				break;				
 			}
-		}
-		_reset();		
+		}		
+		_reset();				
 		token.transfer(winner, prize);
 		emit Winner(_drawNo.current(), winner, prize);
 	}
@@ -145,18 +155,22 @@ contract NekoLottery is Ownable {
 	onlyOwner()
 	{		
 		uint256 balance = token.balanceOf(address(this));
-		require(balance > 0, "NEKO Lottery: must have a balance");
+		require(balance >= _liquidityAmount);
 
 		bool approved = token.approve(address(router), balance);
 		require(approved, "NEKO Lottery: PangolinRouter approval failed");		
 
-		uint256 half = SafeMath.div(balance, 2);		
-		uint256 deadline = block.timestamp + deadlineOffset;
+		uint256 half = SafeMath.div(_liquidityAmount, 2);		
+		uint256 deadline = block.timestamp + deadlineOffset;		
 		_swap(half, deadline);
- 		_addLiquidity(deadline); 
- 		// whatever remains after 
- 		uint256 change = token.balanceOf(address(this));
- 		token.transfer(msg.sender, change); 		
+ 		_addLiquidity(half, deadline); 
+ 		uint256 newBalance = token.balanceOf(address(this));
+ 		uint256 liquiditySpend = SafeMath.sub(balance, newBalance); 		
+ 		if (liquiditySpend < _liquidityAmount) {
+			_liquidityAmount = SafeMath.sub(_liquidityAmount, liquiditySpend);			 
+ 		} else {
+ 			_liquidityAmount = 0;
+ 		}
 	}
 
 	function _swap(uint256 amount, uint256 deadline)
@@ -164,17 +178,17 @@ contract NekoLottery is Ownable {
 	{		
 		address[] memory path = new address[](2);
         path[0] = address(token);
-        path[1] = address(wavax);                   
+        path[1] = address(wavax);
+
  		router.swapExactTokensForAVAX(amount, 0, path, address(this), deadline);		
 	}
 
-	function _addLiquidity(uint256 deadline) 
+	function _addLiquidity(uint256 amount, uint256 deadline) 
 	private	
-	{
- 		uint256 tokenBalance = token.balanceOf(address(this));
+	{ 		
  		uint256 wavaxBalance = address(this).balance; 		
 		(uint tokenAmt, uint avaxAmt, uint liq) = router
-			.addLiquidityAVAX{value: wavaxBalance}(address(token), tokenBalance, 0, 0, msg.sender, deadline);
+			.addLiquidityAVAX{value: wavaxBalance}(address(token), amount, 0, 0, msg.sender, deadline);
 		emit LiquidityGenerated(tokenAmt, avaxAmt, liq);
 	}
 
