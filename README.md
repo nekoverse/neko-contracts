@@ -41,3 +41,4 @@ Logo (transparent, 200p): https://arweave.net/CiD6ETqK8KgDPJg9istCnjSwaN_IUJDiJv
 Logo (transparent, 630p): https://arweave.net/3IpH_0OWsf3L4UajqlND-c5iBMhMp9YJAsz0gxQ-_OE
 
 ### Important Transactions (Mainnet)
+https://cchain.explorer.avax.network/tx/0x1ea9984fde03ec0ac790745a49ddb914b12f06e75cd6c787647acaf4635c3159/token-transfers
