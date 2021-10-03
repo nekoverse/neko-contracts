@@ -4,5 +4,4 @@ cache
 scripts
 node_modules
 out
-contracts/NekoNKCAuction.sol
 yarn-error.log
