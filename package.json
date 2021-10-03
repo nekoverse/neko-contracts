@@ -8,28 +8,23 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/timeslave1/neko.git"
+    "url": "git+https://github.com/nekoverse/neko.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/timeslave1/neko/issues"
+    "url": "https://github.com/nekoverse/neko/issues"
   },
-  "homepage": "https://github.com/timeslave1/neko#readme",
+  "homepage": "https://github.com/nekoverse/neko#readme",
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.2",
     "@nomiclabs/hardhat-waffle": "^2.0.1",
     "@openzeppelin/contracts": "^3.4.0",
     "@pangolindex/exchange-contracts": "^1.0.1",
-    "@poanet/solidity-flattener": "^3.0.6",
     "ethers": "^5.1.4",
     "hardhat": "^2.2.1",
-    "neko": "git://github.com/timeslave1/neko-contracts.git",
-    "neko-contracts": "github:timeslave1/neko-contracts"
-  },
-  "dependencies": {
-    "avalanche": "^3.2.6",
-    "eth-revert-reason": "^1.0.3"
+    "neko": "git://github.com/nekoverse/neko-contracts.git",
+    "neko-contracts": "github:nekoverse/neko-contracts"
   }
 }
