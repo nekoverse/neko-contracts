@@ -4,6 +4,7 @@
   "description": "Good luck charm",
   "main": "deploy.js",
   "scripts": {
+    "compile": "npx hardhat compile",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -26,5 +27,8 @@
     "hardhat": "^2.2.1",
     "neko": "git://github.com/nekoverse/neko-contracts.git",
     "neko-contracts": "github:nekoverse/neko-contracts"
+  },
+  "dependencies": {
+    "solc": "^0.8.9"
   }
 }
